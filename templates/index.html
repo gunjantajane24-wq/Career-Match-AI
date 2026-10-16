@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Match AI</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <p class="tag">YOUR FUTURE STARTS HERE</p>
+        <h1>Career Match <span>AI</span></h1>
+        <p class="subtitle">
+            Discover career paths that match your skills and interests.
+        </p>
+
+        <form action="/recommend" method="POST">
+            <label for="interest">Career interest</label>
+            <select id="interest" name="interest" required>
+                <option value="">Choose your interest</option>
+                <option value="web development">Web Development</option>
+                <option value="app development">App Development</option>
+                <option value="data science">Data Science</option>
+                <option value="cybersecurity">Cybersecurity</option>
+                <option value="ai and machine learning">
+                    AI and Machine Learning
+                </option>
+            </select>
+
+            <label for="skills">Your current skills</label>
+            <input id="skills" name="skills"
+                   placeholder="Example: Python, HTML, SQL">
+
+            <label for="education">Education level</label>
+            <select id="education" name="education" required>
+                <option value="">Select education</option>
+                <option value="First-year student">First-year student</option>
+                <option value="Second-year student">Second-year student</option>
+                <option value="Third-year student">Third-year student</option>
+                <option value="Final-year student">Final-year student</option>
+                <option value="Graduate">Graduate</option>
+            </select>
+
+            <button type="submit">Find My Career Match →</button>
+        </form>
+
+        <p class="note">
+            Get a starting recommendation and identify skills to develop.
+        </p>
+    </main>
+</body>
+</html>

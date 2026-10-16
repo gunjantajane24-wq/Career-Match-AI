@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Career Match</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        {% if error %}
+            <h1>Oops!</h1>
+            <p>{{ error }}</p>
+        {% else %}
+            <p class="tag">YOUR RESULTS</p>
+            <h1>{{ career_name }}</h1>
+            <p class="subtitle">{{ description }}</p>
+
+            <h2>{{ score }}% Skill Match</h2>
+            <p>Education: {{ education }}</p>
+
+            <h3>Skills you already have</h3>
+            {% if matched %}
+                <ul>
+                    {% for skill in matched %}
+                        <li>{{ skill }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No matching skills entered yet.</p>
+            {% endif %}
+
+            <h3>Skills to learn</h3>
+            {% if missing %}
+                <ul>
+                    {% for skill in missing %}
+                        <li>{{ skill }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>You entered all the listed skills!</p>
+            {% endif %}
+        {% endif %}
+
+        <button onclick="window.location.href='/'">
+            Try Another Match
+        </button>
+    </main>
+</body>
+</html>
